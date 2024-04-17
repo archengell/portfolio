@@ -1,7 +1,9 @@
 import { ThemeOptions } from '@mui/material/styles';
 import { deepmerge } from '@mui/utils';
 
-import { Themes } from './types';
+import { Colors } from '@lib/constants/colors.ts';
+
+import { Themes } from './types.ts';
 
 const sharedTheme = {
   palette: {
@@ -53,8 +55,8 @@ const themes: Record<Themes, ThemeOptions> = {
     palette: {
       mode: 'dark',
       background: {
-        default: '#111',
-        paper: '#171717',
+        default: Colors.Dark5, // #fff
+        paper: Colors.Dark5, // #171717
       },
       primary: {
         main: '#333',

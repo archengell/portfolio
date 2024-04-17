@@ -21,11 +21,10 @@
     "react/react-in-jsx-scope": "off",
     "react-hooks/rules-of-hooks": "error",
     "react-hooks/exhaustive-deps": "warn",
-    "no-restricted-imports": [
-      "error",
-      {
-        "patterns": ["@mui/*/*/*"]
-      }
-    ]
+    //https://eslint.org/docs/latest/rules/no-restricted-imports
+    "no-restricted-imports": "off",
+    // turned this off bc it complains w/ skinnedMesh component at ../3DComponents/Avatar.tsx
+    "react/no-unknown-property": "off",
+    "@typescript-eslint/ban-ts-comment": "off"
   }
 }

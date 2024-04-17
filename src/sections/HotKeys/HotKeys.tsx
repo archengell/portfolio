@@ -36,19 +36,19 @@ function HotKeys() {
       <DialogContent>
         <FlexBox alignItems="center" height={50} justifyContent="space-between">
           <Typography>Toggle Theme</Typography>
-          <Button color="warning" variant="outlined" onClick={themeActions.toggle}>
+          <Button color="info" variant="outlined" onClick={themeActions.toggle}>
             alt + t
           </Button>
         </FlexBox>
         <FlexBox alignItems="center" height={50} justifyContent="space-between">
           <Typography>Toggle Sidebar</Typography>
-          <Button color="warning" variant="outlined" onClick={sidebarActions.toggle}>
+          <Button color="info" variant="outlined" onClick={sidebarActions.toggle}>
             alt + s
           </Button>
         </FlexBox>
         <FlexBox alignItems="center" height={50} justifyContent="space-between">
           <Typography>Toggle Hot Keys&apos; Dialog</Typography>
-          <Button color="warning" variant="outlined" onClick={hotKeysDialogActions.toggle}>
+          <Button color="info" variant="outlined" onClick={hotKeysDialogActions.toggle}>
             alt + k
           </Button>
         </FlexBox>

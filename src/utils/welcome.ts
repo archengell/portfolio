@@ -1,4 +1,4 @@
-import { title } from '@/config';
+import { title } from '@/config/index.ts';
 
 // this utility is used to welcome users in the console
 function getRandomRGBNumber() {
@@ -17,7 +17,7 @@ function welcome() {
   const [color, invertedColor] = getRandomColor();
 
   const styles = [
-    'font-size: 40px',
+    'font-size: 20px',
     `color: ${color}`,
     `border: 1px solid ${invertedColor}`,
     `background-color: ${invertedColor}`,

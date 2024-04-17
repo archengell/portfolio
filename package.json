@@ -1,16 +1,16 @@
 {
-  "name": "react-pwa",
+  "name": "kelly-justin-wilson-portfolio",
   "version": "2.3.0",
   "type": "module",
-  "description": "Starter kit for modern web applications",
-  "homepage": "https://react-pwa.surenatoyan.com/",
+  "description": "portfolio website",
+  "homepage": "https://kellyjust.in/",
   "repository": {
     "type": "git",
-    "url": "https://github.com/suren-atoyan/react-pwa.git"
+    "url": "https://github.com/Arkangel17/portfolio.git"
   },
   "bugs": {
-    "url": "https://github.com/suren-atoyan/react-pwa/issues",
-    "email": "contact@surenatoyan.com"
+    "url": "https://github.com/Arkangel17/portfolio/issues",
+    "email": "kjwilsondfl@gmail.com"
   },
   "license": "MIT",
   "scripts": {
@@ -24,7 +24,9 @@
     "ts:check": "tsc --noEmit",
     "test:unit": "vitest",
     "test:e2e": "playwright test",
-    "test:e2e:ui": "playwright test --ui"
+    "test:e2e:ui": "playwright test --ui",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "dependencies": {
     "@emotion/react": "^11.11.1",
@@ -34,19 +36,34 @@
     "@mui/material": "^5.15.0",
     "@mui/system": "^5.15.0",
     "@mui/utils": "^5.15.0",
+    "@react-three/drei": "^9.105.2",
+    "@react-three/fiber": "^8.16.1",
+    "@types/dat.gui": "^0.7.13",
+    "@types/three": "^0.163.0",
+    "copy-to-clipboard": "^3.3.3",
+    "dat.gui": "^0.7.9",
+    "file-saver": "^2.0.5",
     "is-mobile": "^4.0.0",
+    "leva": "^0.9.35",
+    "lodash": "^4.17.21",
     "notistack": "^3.0.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-error-boundary": "^4.0.11",
     "react-helmet-async": "^2.0.3",
+    "react-hook-form": "^7.51.2",
     "react-hotkeys-hook": "^4.4.1",
+    "react-pdf": "^7.7.1",
     "react-router-dom": "^6.21.0",
-    "recoil": "^0.7.7"
+    "react-type-animation": "^3.2.0",
+    "recoil": "^0.7.7",
+    "three": "^0.163.0",
+    "uuid": "^9.0.1"
   },
   "devDependencies": {
     "@playwright/test": "^1.40.1",
     "@trivago/prettier-plugin-sort-imports": "^4.3.0",
+    "@types/file-saver": "^2.0.7",
     "@types/node": "^20.10.4",
     "@types/react": "^18.2.45",
     "@types/react-dom": "^18.2.17",
@@ -56,6 +73,7 @@
     "eslint": "^8.55.0",
     "eslint-plugin-react": "^7.33.2",
     "eslint-plugin-react-hooks": "^4.6.0",
+    "gh-pages": "^6.1.1",
     "https-localhost": "^4.7.1",
     "husky": "^8.0.3",
     "lint-staged": "^15.2.0",
@@ -77,6 +95,10 @@
     "name": "Suren Atoyan",
     "email": "contact@surenatoyan.com",
     "url": "http://surenatoyan.com/"
+  },
+  "coauthor": {
+    "name": "kelly justin wilson",
+    "email": "kjwilsondfl@gmail.com"
   },
   "keywords": [
     "react",

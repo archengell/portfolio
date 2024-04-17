@@ -9,7 +9,11 @@ import { useRegisterSW } from 'virtual:pwa-register/react';
 import useNotifications from '@/store/notifications';
 
 // TODO (Suren): this should be a custom hook :)
-function SW() {
+/**
+ * @info SW = service worker
+ * @returns
+ */
+const SW = () => {
   const [, notificationsActions] = useNotifications();
   const notificationKey = useRef<SnackbarKey | null>(null);
   const {
@@ -53,6 +57,6 @@ function SW() {
   }, [close, needRefresh, offlineReady, notificationsActions, updateServiceWorker]);
 
   return null;
-}
+};
 
 export default SW;

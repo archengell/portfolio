@@ -1,12 +1,12 @@
-import isMobile from '@/utils/is-mobile';
+import isMobile from '@/utils/is-mobile.ts';
 
-import type { Notifications } from './types';
+import type { Notifications } from './types.ts';
 
-const title = 'React PWA';
+const title = 'Kelly Justin Wilson';
 
-const email = 'auther-email@gmail.com';
+const email = 'kjwilsondfl@gmail.com';
 
-const repository = 'https://github.com/suren-atoyan/react-pwa';
+const repository = 'https://github.com/Arkangel17/portfolio';
 
 const messages = {
   app: {
@@ -22,9 +22,9 @@ const messages = {
     fail: 'Hmmmmm, there is something wrong with this component loading process... Maybe trying later would be the best idea',
   },
   images: {
-    failed: 'something went wrong during image loading :(',
+    failed: 'Something went wrong during image loading :(',
   },
-  404: 'Hey bro? What are you looking for?',
+  404: 'Hey man? What are you looking for?',
 };
 
 const dateFormat = 'MMMM DD, YYYY';

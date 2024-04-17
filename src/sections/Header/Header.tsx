@@ -1,15 +1,12 @@
+import React from 'react';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import ThemeIcon from '@mui/icons-material/InvertColors';
 import MenuIcon from '@mui/icons-material/Menu';
-import AppBar from '@mui/material/AppBar';
-import Box from '@mui/material/Box';
-import Button from '@mui/material/Button';
-import Divider from '@mui/material/Divider';
-import IconButton from '@mui/material/IconButton';
-import Toolbar from '@mui/material/Toolbar';
-import Tooltip from '@mui/material/Tooltip';
+import { AppBar, Box, Button, Divider, IconButton, Toolbar, Tooltip } from '@mui/material';
 
+import ArchengeLogo from '@/assets/icons/ArchengeLogo';
 import { FlexBox } from '@/components/styled';
+
 import { repository, title } from '@/config';
 import useHotKeysDialog from '@/store/hotkeys';
 import useNotifications from '@/store/notifications';
@@ -41,7 +38,7 @@ function Header() {
   }
 
   return (
-    <Box sx={{ flexGrow: 1 }} data-pw={`theme-${theme}`}>
+    <Box component={'div'} sx={{ flexGrow: 1 }} data-pw={`theme-${theme}`}>
       <AppBar color="transparent" elevation={1} position="static">
         <Toolbar sx={{ justifyContent: 'space-between' }}>
           <FlexBox sx={{ alignItems: 'center' }}>
@@ -55,9 +52,14 @@ function Header() {
             >
               <MenuIcon />
             </IconButton>
-            <Button onClick={showNotification} color="info">
-              {title}
-            </Button>
+            <Tooltip arrow title="click me for an IT joke!" placement="right-end">
+              <Button onClick={showNotification} color="info">
+                {title}
+              </Button>
+            </Tooltip>
+          </FlexBox>
+          <FlexBox>
+            <ArchengeLogo />
           </FlexBox>
           <FlexBox>
             <FlexBox>
@@ -73,7 +75,7 @@ function Header() {
               </Tooltip>
             </FlexBox>
             <Divider orientation="vertical" flexItem />
-            <Tooltip title="It's open source" arrow>
+            <Tooltip title="source code" arrow>
               <IconButton color="info" size="large" component="a" href={repository} target="_blank">
                 <GitHubIcon />
               </IconButton>

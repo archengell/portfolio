@@ -6,7 +6,7 @@ import { Themes } from '@/theme/types';
 import type { AtomEffectParams } from '../types';
 import type { Actions } from './types';
 
-const themeModeState = atom({
+export const themeModeState = atom({
   key: 'theme-mode-state',
   default: 'dark' as Themes,
   effects: [synchronizeWithLocalStorage],

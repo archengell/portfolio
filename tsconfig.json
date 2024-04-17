@@ -9,8 +9,11 @@
     "allowSyntheticDefaultImports": true,
     "strict": true,
     "forceConsistentCasingInFileNames": true,
-    "module": "ESNext",
-    "moduleResolution": "Node",
+    "allowImportingTsExtensions": true,
+    // https://www.typescriptlang.org/docs/handbook/modules/theory.html#the-module-output-format
+    "module": "NodeNext",
+    // https://www.typescriptlang.org/tsconfig#moduleResolution
+    "moduleResolution": "NodeNext",
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
@@ -18,9 +21,10 @@
     "baseUrl": "./",
     "types": ["vite-plugin-pwa/client"],
     "paths": {
-      "@/*": ["src/*"]
+      "@/*": ["src/*"],
+      "@lib/*": ["lib/*"]
     }
   },
-  "include": ["src"],
+  "include": ["src", "lib"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }
