@@ -1,3 +1,3 @@
-import Resume from './Resume';
+import Resume from './Resume.tsx';
 
 export default Resume;

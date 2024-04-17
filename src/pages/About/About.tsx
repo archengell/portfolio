@@ -1,7 +1,7 @@
 import { Typography } from '@mui/material';
 
-import { FullSizeCenteredFlexBox } from '@/components/styled';
-import { Colors } from '@lib/constants/colors';
+import { FullSizeCenteredFlexBox } from '@/components/styled.ts';
+import { Colors } from '@lib/constants/colors.ts';
 
 function About() {
   return (

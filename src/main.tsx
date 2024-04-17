@@ -1,4 +1,4 @@
-import welcome from '@/utils/welcome';
+import welcome from '@/utils/welcome.ts';
 
 // Root contains the main dependencies and providers of the base app
 //  - React, ReactDom, RecoilRoot, HelmetProvider, ThemeProvider, MUI-core)
@@ -7,7 +7,7 @@ import welcome from '@/utils/welcome';
 // These are the two main chunks that are used to render the core structure of the app
 // Importing them with Promise.all (by using HTTP/2 multiplexing) we can load them in parallel
 // and achieve the best possible performance
-
+// @ts-ignore
 Promise.all([import('@/Root'), import('@/App')]).then(([{ default: render }, { default: App }]) => {
   render(App);
 });

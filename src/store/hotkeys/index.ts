@@ -1,7 +1,7 @@
 import { useCallback, useMemo } from 'react';
 import { atom, useRecoilState } from 'recoil';
 
-import type { Actions } from './types';
+import type { Actions } from './types.ts';
 
 const hotKeysDialogState = atom<boolean>({
   key: 'hotkeys-dialog-state',

@@ -1,11 +1,10 @@
-import EmailIcon from '@mui/icons-material/Email';
-import RestartIcon from '@mui/icons-material/RestartAlt';
+import { Email, RestartAlt } from '@mui/icons-material';
 import { Box, Button, Paper, Typography } from '@mui/material';
 import { Colors } from '@lib/constants/colors.ts';
 
 import { FullSizeCenteredFlexBox } from '@/components/styled.ts';
-import { email, messages } from '@/config';
-import resetApp from '@/utils/reset-app';
+import { email, messages } from '@/config/index.ts';
+import resetApp from '@/utils/reset-app.ts';
 
 const borderProps = { border: `2px solid ${Colors.Blue8}`, borderRadius: '10px' };
 
@@ -18,7 +17,7 @@ function AppErrorBoundaryFallback() {
             {messages.app.crash.title}
           </Typography>
           <Button
-            startIcon={<EmailIcon />}
+            startIcon={<Email />}
             variant="outlined"
             target="_blank"
             rel="noreferrer"
@@ -30,7 +29,7 @@ function AppErrorBoundaryFallback() {
           </Button>
           <Typography component="h6">or</Typography>
           <Button
-            startIcon={<RestartIcon />}
+            startIcon={<RestartAlt />}
             sx={{ mt: 3 }}
             variant="outlined"
             onClick={resetApp}

@@ -1,20 +1,17 @@
-import React from 'react';
-import GitHubIcon from '@mui/icons-material/GitHub';
-import ThemeIcon from '@mui/icons-material/InvertColors';
-import MenuIcon from '@mui/icons-material/Menu';
+import { GitHub, InvertColors, Menu } from '@mui/icons-material';
 import { AppBar, Box, Button, Divider, IconButton, Toolbar, Tooltip } from '@mui/material';
 
-import ArchengeLogo from '@/assets/icons/ArchengeLogo';
-import { FlexBox } from '@/components/styled';
+import ArchengeLogo from '@/assets/icons/ArchengeLogo.tsx';
+import { FlexBox } from '@/components/styled.ts';
 
-import { repository, title } from '@/config';
-import useHotKeysDialog from '@/store/hotkeys';
-import useNotifications from '@/store/notifications';
-import useSidebar from '@/store/sidebar';
-import useTheme from '@/store/theme';
+import { repository, title } from '@/config/index.ts';
+import useHotKeysDialog from '@/store/hotkeys/index.ts';
+import useNotifications from '@/store/notifications/index.ts';
+import useSidebar from '@/store/sidebar/index.ts';
+import useTheme from '@/store/theme/index.ts';
 
-import { HotKeysButton } from './styled';
-import { getRandomJoke } from './utils';
+import { HotKeysButton } from './styled.ts';
+import { getRandomJoke } from './utils.ts';
 
 function Header() {
   const [, sidebarActions] = useSidebar();
@@ -50,7 +47,7 @@ function Header() {
               aria-label="menu"
               sx={{ mr: 1 }}
             >
-              <MenuIcon />
+              <Menu />
             </IconButton>
             <Tooltip arrow title="click me for an IT joke!" placement="right-end">
               <Button onClick={showNotification} color="info">
@@ -77,7 +74,7 @@ function Header() {
             <Divider orientation="vertical" flexItem />
             <Tooltip title="source code" arrow>
               <IconButton color="info" size="large" component="a" href={repository} target="_blank">
-                <GitHubIcon />
+                <GitHub />
               </IconButton>
             </Tooltip>
             <Divider orientation="vertical" flexItem />
@@ -89,7 +86,7 @@ function Header() {
                 onClick={themeActions.toggle}
                 data-pw="theme-toggle"
               >
-                <ThemeIcon />
+                <InvertColors />
               </IconButton>
             </Tooltip>
           </FlexBox>

@@ -3,9 +3,9 @@ import { atom, useRecoilState } from 'recoil';
 
 import type { SnackbarKey } from 'notistack';
 
-import { notifications as notificationsDefaults } from '@/config';
+import { notifications as notificationsDefaults } from '@/config/index.ts';
 
-import { Actions, Notification } from './types';
+import { Actions, Notification } from './types.ts';
 
 const notificationsState = atom<Notification[]>({
   key: 'notificationsState',

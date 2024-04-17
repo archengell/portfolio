@@ -1,3 +1,3 @@
-import Meta from './Meta';
+import Meta from './Meta.tsx';
 
 export default Meta;

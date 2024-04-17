@@ -1,3 +1,3 @@
-import Notifications from './Notifications';
+import Notifications from './Notifications.tsx';
 
 export default Notifications;

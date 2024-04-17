@@ -1,3 +1,3 @@
-import AppErrorBoundaryFallback from './App';
+import AppErrorBoundaryFallback from './App.tsx';
 
 export default AppErrorBoundaryFallback;

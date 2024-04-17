@@ -3,7 +3,7 @@ import { createRoot } from 'react-dom/client';
 import { HelmetProvider } from 'react-helmet-async';
 import { RecoilRoot } from 'recoil';
 
-import ThemeProvider from '@/theme/Provider';
+import ThemeProvider from '@/theme/Provider.tsx';
 
 const container = document.getElementById('root') as HTMLElement;
 const root = createRoot(container);

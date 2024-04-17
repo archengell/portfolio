@@ -1,10 +1,10 @@
 import { useCallback, useMemo } from 'react';
 import { atom, useRecoilState } from 'recoil';
 
-import { Themes } from '@/theme/types';
+import { Themes } from '@/theme/types.ts';
 
-import type { AtomEffectParams } from '../types';
-import type { Actions } from './types';
+import type { AtomEffectParams } from '../types.ts';
+import type { Actions } from './types.ts';
 
 export const themeModeState = atom({
   key: 'theme-mode-state',

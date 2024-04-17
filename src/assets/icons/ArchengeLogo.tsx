@@ -1,6 +1,6 @@
 import React from 'react';
 import { SxProps } from '@mui/material';
-import { Colors } from '../../../lib/constants/colors';
+import { Colors } from '../../../lib/constants/colors.ts';
 
 type TArchengeLogoSVGProps = {
   width?: number;

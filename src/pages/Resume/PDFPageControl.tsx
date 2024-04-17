@@ -1,7 +1,7 @@
 import React from 'react';
 import { Button, Stack, Typography } from '@mui/material';
 
-import { Colors } from '@lib/constants/colors';
+import { Colors } from '@lib/constants/colors.ts';
 
 type PDFPageControlProps = {
   pageNumber: number;

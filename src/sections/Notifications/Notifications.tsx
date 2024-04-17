@@ -1,17 +1,14 @@
+import React from 'react';
 import { CustomContentProps, SnackbarProvider } from 'notistack';
-
-import { notifications } from '@/config';
-
-import Notifier from './Notifier';
-import Alert from '@mui/material/Alert';
-import AlertTitle from '@mui/material/AlertTitle';
-import { Ref, forwardRef } from 'react';
+import { Alert, AlertTitle } from '@mui/material';
+import { notifications } from '@/config/index.ts';
+import Notifier from './Notifier/index.ts';
 
 // here how you can define your own notification component
 
-const CustomNotification = forwardRef(function CustomNotification(
+const CustomNotification = React.forwardRef(function CustomNotification(
   { message }: CustomContentProps,
-  ref: Ref<HTMLDivElement>,
+  ref: React.Ref<HTMLDivElement>,
 ) {
   return (
     <Alert ref={ref} severity="info">

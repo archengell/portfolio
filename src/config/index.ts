@@ -1,5 +1,3 @@
-import isMobile from '@/utils/is-mobile.ts';
-
 import type { Notifications } from './types.ts';
 
 const title = 'Kelly Justin Wilson';
@@ -37,7 +35,7 @@ const notifications: Notifications = {
     },
     autoHideDuration: 6000,
   },
-  maxSnack: isMobile ? 3 : 4,
+  maxSnack: 3,
 };
 
 const loader = {

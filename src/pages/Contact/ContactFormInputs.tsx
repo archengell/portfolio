@@ -1,6 +1,4 @@
-import React from 'react';
-import EmailIcon from '@mui/icons-material/Email';
-import EmojiPeopleIcon from '@mui/icons-material/EmojiPeople';
+import { Email, EmojiPeople } from '@mui/icons-material';
 
 export interface InputProps {
   label: string;
@@ -17,14 +15,14 @@ const ContactFormInputs: InputProps[] = [
     name: 'user_name',
     placeholder: 'Your Name',
     type: 'text',
-    icon: <EmojiPeopleIcon />,
+    icon: <EmojiPeople />,
   },
   {
     label: 'Email',
     name: 'user_email',
     placeholder: 'Your Email',
     type: 'email',
-    icon: <EmailIcon />,
+    icon: <Email />,
   },
   {
     label: 'Message',

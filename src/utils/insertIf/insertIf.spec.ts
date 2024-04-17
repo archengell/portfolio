@@ -1,4 +1,4 @@
-import { arrayInsertIf, objectInsertIf } from './';
+import { arrayInsertIf, objectInsertIf } from './index.ts';
 import { expect, test } from 'vitest';
 
 test('arrayInsertIf: returns empty array if condition is false', () => {

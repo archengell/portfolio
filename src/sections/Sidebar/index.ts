@@ -1,3 +1,3 @@
-import Sidebar from './Sidebar';
+import Sidebar from './Sidebar.tsx';
 
 export default Sidebar;

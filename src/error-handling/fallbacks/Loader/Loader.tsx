@@ -1,11 +1,10 @@
-import Box from '@mui/material/Box';
-import Typography from '@mui/material/Typography';
+import { Box, Typography } from '@mui/material';
 
-import { messages } from '@/config';
+import { messages } from '@/config/index.ts';
 
 function LoaderErrorBoundaryFallback() {
   return (
-    <Box>
+    <Box component={'div'}>
       <Typography variant="h5">{messages.loader.fail}</Typography>
     </Box>
   );

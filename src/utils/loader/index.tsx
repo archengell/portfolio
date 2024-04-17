@@ -1,8 +1,8 @@
-import Loading from '@/components/Loading';
-import { loader as loaderDefaultOptions } from '@/config';
+import Loading from '@/components/Loading/index.ts';
+import { loader as loaderDefaultOptions } from '@/config/index.ts';
 
-import asyncComponentLoader from './loader';
-import type { AnyProps, LoadComponent, LoaderDefaultOptions } from './types';
+import asyncComponentLoader from './loader.tsx';
+import type { AnyProps, LoadComponent, LoaderDefaultOptions } from './types.ts';
 
 const configuredAsyncComponentLoader = (
   loadComponent: LoadComponent,

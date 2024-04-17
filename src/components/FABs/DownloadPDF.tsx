@@ -2,7 +2,7 @@ import React from 'react';
 import { saveAs } from 'file-saver';
 
 import { Fab } from '@mui/material';
-import DownloadOutlinedIcon from '@mui/icons-material/DownloadOutlined';
+import { DownloadOutlined } from '@mui/icons-material';
 
 import { Colors } from '@lib/constants/colors.ts';
 // import useTheme from '@/store/theme';
@@ -32,7 +32,7 @@ export const DownloadPDF: React.FC<TDwnLoadPDFFabProps> = ({ file }) => {
       }}
       onClick={handleDownload}
     >
-      <DownloadOutlinedIcon fontSize="large" sx={{ color: Colors.Blue8 }} />
+      <DownloadOutlined fontSize="large" sx={{ color: Colors.Blue8 }} />
     </Fab>
   );
 };

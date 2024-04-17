@@ -1,8 +1,8 @@
 import { Helmet } from 'react-helmet-async';
 
-import { title as appTitle, defaultMetaTags } from '@/config';
+import { title as appTitle, defaultMetaTags } from '@/config/index.ts';
 
-import type { MetaProps } from './types';
+import type { MetaProps } from './types.ts';
 
 function Meta({
   description = defaultMetaTags.description,

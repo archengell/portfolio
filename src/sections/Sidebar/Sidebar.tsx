@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import React from 'react';
 
-import DefaultIcon from '@mui/icons-material/Deblur';
+import { Deblur } from '@mui/icons-material';
 import {
   List,
   ListItem,
@@ -12,8 +12,7 @@ import {
   SwipeableDrawer,
 } from '@mui/material';
 
-import routes from '@/routes';
-// import { Pages, Routes } from '@/routes/types.ts';
+import routes from '@/routes/index.ts';
 import useSidebar from '@/store/sidebar/index.ts';
 import { Actions } from '@/store/sidebar/types.ts';
 import { Colors } from '@lib/constants/colors.ts';
@@ -28,7 +27,7 @@ type SibeBarItemProps = {
 const SidebarItem = ({ path, title, icon: Icon, sidebarActions }: SibeBarItemProps) => (
   <ListItem sx={{ p: 0 }} key={path}>
     <ListItemButton component={Link} to={path} onClick={sidebarActions.close}>
-      <ListItemIcon>{Icon ? <Icon /> : <DefaultIcon />}</ListItemIcon>
+      <ListItemIcon>{Icon ? <Icon /> : <Deblur />}</ListItemIcon>
       <ListItemText>{title}</ListItemText>
     </ListItemButton>
   </ListItem>

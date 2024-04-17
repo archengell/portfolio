@@ -1,6 +1,6 @@
-import Button from '@mui/material/Button';
-import { styled } from '@mui/material/styles';
-import { Colors } from '@lib/constants/colors';
+import { Button } from '@mui/material';
+import { styled } from '@mui/material';
+import { Colors } from '@lib/constants/colors.ts';
 
 const HotKeysButton = styled(Button)(({ theme }) => ({
   height: 'fit-content',

@@ -1,14 +1,16 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import { Button, InputAdornment, Stack, TextField } from '@mui/material';
-import ArrowCircleRightIcon from '@mui/icons-material/ArrowCircleRight';
-import { Colors } from '@lib/constants/colors';
-import useTheme from '@/store/theme';
-import { Themes } from '@/theme/types';
-import EmailIcon from '@mui/icons-material/Email';
-import EmojiPeopleIcon from '@mui/icons-material/EmojiPeople';
-import HeadsetMicIcon from '@mui/icons-material/HeadsetMic';
-import PhoneAndroidIcon from '@mui/icons-material/PhoneAndroid';
+import {
+  ArrowCircleRight,
+  Email,
+  EmojiPeople,
+  HeadsetMic,
+  PhoneAndroid,
+} from '@mui/icons-material';
+import { Colors } from '@lib/constants/colors.ts';
+import useTheme from '@/store/theme/index.ts';
+import { Themes } from '@/theme/types.ts';
 
 type TFormData = {
   name: string;
@@ -35,7 +37,7 @@ const ContactForm = () => {
           InputProps={{
             startAdornment: (
               <InputAdornment position="start">
-                <EmojiPeopleIcon sx={{ color: Colors.Blue8 }} />
+                <EmojiPeople sx={{ color: Colors.Blue8 }} />
               </InputAdornment>
             ),
           }}
@@ -47,7 +49,7 @@ const ContactForm = () => {
           InputProps={{
             startAdornment: (
               <InputAdornment position="start">
-                <EmailIcon sx={{ color: Colors.Blue8 }} />
+                <Email sx={{ color: Colors.Blue8 }} />
               </InputAdornment>
             ),
           }}
@@ -60,7 +62,7 @@ const ContactForm = () => {
           InputProps={{
             startAdornment: (
               <InputAdornment position="start">
-                <PhoneAndroidIcon sx={{ color: Colors.Blue8 }} />
+                <PhoneAndroid sx={{ color: Colors.Blue8 }} />
               </InputAdornment>
             ),
           }}
@@ -74,7 +76,7 @@ const ContactForm = () => {
           InputProps={{
             startAdornment: (
               <InputAdornment position="start">
-                <HeadsetMicIcon sx={{ color: Colors.Blue8 }} />
+                <HeadsetMic sx={{ color: Colors.Blue8 }} />
               </InputAdornment>
             ),
           }}
@@ -90,7 +92,7 @@ const ContactForm = () => {
             border: `1px solid ${Colors.Blue8}`,
             backgroundColor: themeMode === Themes.DARK ? Colors.Dark5 : Colors.Light2,
           }}
-          startIcon={<ArrowCircleRightIcon />}
+          startIcon={<ArrowCircleRight />}
         >
           Submit
         </Button>
