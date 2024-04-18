@@ -1,0 +1,1 @@
+import{j as o,C as r}from"./colors-Cv6p-LpM.js";import{F as e,T as s}from"./App-DdmIuzrg.js";import"./index-CL1vr3-A.js";function a(){return o.jsx(o.Fragment,{children:o.jsx(e,{children:o.jsx(s,{variant:"h3",sx:{color:r.Blue8},children:"Coming soon..."})})})}export{a as default};
