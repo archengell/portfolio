@@ -9,7 +9,7 @@ import Pages from '@/routes/Pages/index.ts';
 import Header from '@/sections/Header/index.ts';
 import HotKeys from '@/sections/HotKeys/index.ts';
 import Notifications from '@/sections/Notifications/index.ts';
-import SW from '@/sections/SW/index.ts';
+// import SW from '@/sections/SW/index.ts';
 import Sidebar from '@/sections/Sidebar/index.ts';
 
 function App() {
@@ -18,7 +18,7 @@ function App() {
       <CssBaseline />
       <Notifications />
       <HotKeys />
-      <SW />
+      {/* <SW /> */}
       <BrowserRouter>
         <Header />
         <Sidebar />

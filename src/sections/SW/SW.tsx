@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { useCallback, useEffect, useRef } from 'react';
 
 import { Alert, Button } from '@mui/material';
