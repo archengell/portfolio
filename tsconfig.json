@@ -11,9 +11,9 @@
     "forceConsistentCasingInFileNames": true,
     "allowImportingTsExtensions": true,
     // https://www.typescriptlang.org/docs/handbook/modules/theory.html#the-module-output-format
-    "module": "NodeNext",
+    "module": "ESNext",
     // https://www.typescriptlang.org/tsconfig#moduleResolution
-    "moduleResolution": "NodeNext",
+    "moduleResolution": "Node",
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
