@@ -1,4 +1,4 @@
-\*\* In Progres
+\*\* In Progress
 
 **steps to create avatar with animation**
 
@@ -10,5 +10,3 @@
 - upload .fbx model to [mixamo](https://www.mixamo.com/)
 - select and download animations at will
 - note: place all animations and models in your /public folder
-
-asdfafd
