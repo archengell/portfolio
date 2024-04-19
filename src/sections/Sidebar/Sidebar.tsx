@@ -27,7 +27,9 @@ type SibeBarItemProps = {
 const SidebarItem = ({ path, title, icon: Icon, sidebarActions }: SibeBarItemProps) => (
   <ListItem sx={{ p: 0 }} key={path}>
     <ListItemButton component={Link} to={path} onClick={sidebarActions.close}>
-      <ListItemIcon>{Icon ? <Icon /> : <Deblur />}</ListItemIcon>
+      <ListItemIcon>
+        {Icon ? <Icon sx={{ color: 'white' }} /> : <Deblur sx={{ color: 'white' }} />}
+      </ListItemIcon>
       <ListItemText>{title}</ListItemText>
     </ListItemButton>
   </ListItem>
@@ -48,6 +50,7 @@ function Sidebar() {
       sx={{
         '& .MuiDrawer-paper': {
           backgroundColor: Colors.Blue8,
+          color: 'white',
         },
       }}
     >
