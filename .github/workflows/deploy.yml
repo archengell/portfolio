@@ -1,9 +1,13 @@
 name: Deploy
 
+concurrency: github-pages
+
 on:
   push:
     branches:
       - main
+  # https://docs.github.com/en/actions/using-workflows/manually-running-a-workflow
+  workflow_dispatch:
 
 jobs:
   build:
