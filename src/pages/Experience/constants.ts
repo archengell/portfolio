@@ -1,6 +1,6 @@
 import { SlideProps } from '@/pages/types.ts';
 
-const PRG_WELCOME_ASSETS = 'src/assets/images/ol_clai_prg';
+const PRG_WELCOME_ASSETS = './images/ol-clai-prg';
 
 export const PRG_WELCOME_SLIDES: SlideProps[] = [
   {

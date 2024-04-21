@@ -7,7 +7,7 @@ export const experienceCards: ExperienceItemCardProps[] = [
     title: 'Clai Studio: Programming App',
     description:
       'REWS programming dashboard that performed real-time calculations and data visualization based on bepoke spatial logic',
-    imgPath: 'src/assets/images/ol_clai_prg/create.png',
+    imgPath: './images/ol-clai-prg/create.png',
     imgAlt: '',
     slides: PRG_WELCOME_SLIDES,
   },
@@ -15,7 +15,7 @@ export const experienceCards: ExperienceItemCardProps[] = [
     id: 'calibrator',
     title: 'Calibrator: OneWBS ',
     description: 'Web application displaying historical REWS cost data for global REWS portfolio.',
-    imgPath: 'src/assets/images/ol_calibrator/calibrator-logo.png',
+    imgPath: './images/ol-calibrator/calibrator-logo.png',
     imgAlt: '',
   },
   {
@@ -23,7 +23,7 @@ export const experienceCards: ExperienceItemCardProps[] = [
     title: 'Clay Briefs | Designs',
     description:
       'Two Web Applications that performed site and building configuration, feasibility, and programmatic studies.',
-    imgPath: 'src/assets/images/ol_clay_designs/designs-icon.png',
+    imgPath: './images/ol-clay-designs/designs-icon.png',
     imgAlt: '',
   },
   {
