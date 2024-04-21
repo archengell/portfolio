@@ -38,6 +38,7 @@ jobs:
   deploy:
     name: Deploy
     needs: build
+    environment: production
     runs-on: ubuntu-latest
     if: github.ref == 'refs/heads/main'
 
@@ -52,5 +53,6 @@ jobs:
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_branch: production
           publish_dir: ./dist
           cname: kellyjust.in
