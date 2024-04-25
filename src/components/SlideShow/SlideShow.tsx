@@ -57,7 +57,7 @@ const Pagination = ({
 
 const Subtitle = ({ text }: { text: string }) => {
   return (
-    <Typography color={Colors.Text.Medium} fontWeight="400" variant="body1">
+    <Typography color={Colors.Blue8} fontWeight="400" variant="body1">
       {text}
     </Typography>
   );
@@ -65,7 +65,7 @@ const Subtitle = ({ text }: { text: string }) => {
 
 const Title = ({ text }: { text: string }) => {
   return (
-    <Typography color={Colors.Text.Medium} fontWeight="600" variant="subtitle1">
+    <Typography color={Colors.Blue8} fontWeight="600" variant="subtitle1">
       {text}
     </Typography>
   );
@@ -111,14 +111,29 @@ export const SlideShow = ({ slides, handleClose }: SlideShowProps) => {
 
   return (
     <div ref={modalRef}>
-      <Stack flexDirection="column" justifyContent="space-between" height="528px" paddingX="24px">
+      <Stack
+        sx={{
+          flexDirection: 'column',
+          justifyContent: 'space-between',
+          height: '528px',
+          paddingX: '24px',
+        }}
+      >
         <Title text={currentSlide.title} />
         <Subtitle text={currentSlide.subtitle} />
         <Box
           component={'div'}
-          sx={{ display: 'flex', alignContent: 'center', justifyContent: 'center', width: '100%' }}
+          sx={{
+            display: 'flex',
+            alignContent: 'center',
+            justifyContent: 'center',
+          }}
         >
-          <Img src={currentSlide.image} height="auto" width="300px" />
+          <Img
+            src={currentSlide.image}
+            height="auto"
+            width={`${Math.min(currentSlide.width || 350, window.innerWidth * 0.8)}px`}
+          />
         </Box>
         <Box component={'div'} sx={{ margin: '0 auto', width: 'fit-content' }}>
           <Pagination

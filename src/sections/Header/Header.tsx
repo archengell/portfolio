@@ -1,17 +1,40 @@
-import { GitHub, InvertColors, Menu } from '@mui/icons-material';
-import { AppBar, Box, Button, Divider, IconButton, Toolbar, Tooltip } from '@mui/material';
+import { GitHub, InvertColors, Menu, EmojiEmotionsOutlined } from '@mui/icons-material';
+import {
+  AppBar,
+  Box,
+  Button,
+  Divider,
+  IconButton,
+  Stack,
+  Toolbar,
+  Tooltip,
+  Typography,
+} from '@mui/material';
 
 import ArchengeLogo from '@/assets/icons/ArchengeLogo.tsx';
 import { FlexBox } from '@/components/styled.ts';
 
-import { repository, title } from '@/config/index.ts';
+import { repository } from '@/config/index.ts';
 import useHotKeysDialog from '@/store/hotkeys/index.ts';
 import useNotifications from '@/store/notifications/index.ts';
 import useSidebar from '@/store/sidebar/index.ts';
 import useTheme from '@/store/theme/index.ts';
+import { Themes } from '@/theme/types.ts';
 
 import { HotKeysButton } from './styled.ts';
 import { getRandomJoke } from './utils.ts';
+import { Colors } from '../../../lib/constants/colors.ts';
+
+type DynamicTypographyProps = {
+  children: string;
+  minSize: number;
+};
+
+const DynamicTypography = ({ children, minSize }: DynamicTypographyProps) => {
+  const fontSize = Math.max(minSize, window.innerWidth * 0.01); // Adjust the factor as needed
+
+  return <Typography style={{ fontSize }}>{children}</Typography>;
+};
 
 function Header() {
   const [, sidebarActions] = useSidebar();
@@ -35,31 +58,47 @@ function Header() {
   }
 
   return (
-    <Box component={'div'} sx={{ flexGrow: 1 }} data-pw={`theme-${theme}`}>
-      <AppBar color="transparent" elevation={1} position="static">
+    <Box
+      component={'div'}
+      sx={{
+        flexGrow: 1,
+        width: '100vw',
+      }}
+      data-pw={`theme-${theme}`}
+    >
+      <AppBar
+        elevation={4}
+        position="fixed"
+        sx={{
+          backgroundColor: `${theme === Themes.DARK ? Colors.Dark5 : Colors.Light1}`,
+          borderBottom: `2px solid ${Colors.Blue8}`,
+        }}
+      >
         <Toolbar sx={{ justifyContent: 'space-between' }}>
           <FlexBox sx={{ alignItems: 'center' }}>
-            <IconButton
-              onClick={sidebarActions.toggle}
-              size="large"
-              edge="start"
-              color="info"
-              aria-label="menu"
-              sx={{ mr: 1 }}
-            >
-              <Menu />
-            </IconButton>
-            <Tooltip arrow title="click me for an IT joke!" placement="right-end">
-              <Button onClick={showNotification} color="info">
-                {title}
-              </Button>
-            </Tooltip>
+            <Stack direction="row" divider={<Divider orientation="vertical" flexItem />}>
+              <IconButton
+                onClick={sidebarActions.toggle}
+                size="large"
+                edge="start"
+                color="info"
+                aria-label="menu"
+              >
+                <Menu />
+              </IconButton>
+              <Tooltip arrow title="click me for an IT joke!" placement="right">
+                <Button onClick={showNotification} color="info">
+                  <EmojiEmotionsOutlined />
+                  {/* <DynamicTypography minSize={8}>{title}</DynamicTypography> */}
+                </Button>
+              </Tooltip>
+            </Stack>
           </FlexBox>
           <FlexBox>
             <ArchengeLogo />
           </FlexBox>
-          <FlexBox>
-            <FlexBox>
+          <Stack direction="row" divider={<Divider orientation="vertical" flexItem />}>
+            <FlexBox sx={{ display: { xs: 'none', sm: 'none', md: 'flex' } }}>
               <Tooltip title="Hot keys" arrow>
                 <HotKeysButton
                   size="small"
@@ -67,29 +106,27 @@ function Header() {
                   aria-label="open hotkeys dialog"
                   onClick={hotKeysDialogActions.open}
                 >
-                  alt + k
+                  <DynamicTypography minSize={8}>{'alt + k'}</DynamicTypography>
                 </HotKeysButton>
               </Tooltip>
             </FlexBox>
-            <Divider orientation="vertical" flexItem />
             <Tooltip title="source code" arrow>
-              <IconButton color="info" size="large" component="a" href={repository} target="_blank">
+              <IconButton color="info" size="small" component="a" href={repository} target="_blank">
                 <GitHub />
               </IconButton>
             </Tooltip>
-            <Divider orientation="vertical" flexItem />
             <Tooltip title="Switch theme" arrow>
               <IconButton
                 color="info"
                 edge="end"
-                size="large"
+                size="small"
                 onClick={themeActions.toggle}
                 data-pw="theme-toggle"
               >
                 <InvertColors />
               </IconButton>
             </Tooltip>
-          </FlexBox>
+          </Stack>
         </Toolbar>
       </AppBar>
     </Box>

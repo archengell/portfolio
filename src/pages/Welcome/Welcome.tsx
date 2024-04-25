@@ -6,7 +6,8 @@ import { Canvas } from '@react-three/fiber';
 import { Environment, OrbitControls } from '@react-three/drei';
 import { Colors } from '@lib/constants/colors.ts';
 
-const gridSpacing = { xs: 12, sm: 12, m: 6, lg: 6 };
+const modelSpacing = { xs: 12, sm: 12, md: 12, lg: 12, xl: 7 };
+const infoTerminalSpacing = { xs: 12, sm: 12, md: 12, lg: 12, xl: 5 };
 
 const Welcome = () => {
   // const isPortrait = useOrientation();
@@ -16,52 +17,36 @@ const Welcome = () => {
 
   return (
     <>
-      {/* <Meta title="Welcome" /> */}
       <Box
         // hacky work-around: https://stackoverflow.com/questions/68692230/ts-expression-produces-a-union-type-that-is-too-complex-to-represent-with-materi
         component="div"
         sx={{
-          flexGrow: 1,
-          display: 'flex',
-          // justifyContent: 'center',
-          // alignItems: 'center',
-          // minHeight: '100vh',
+          mt: '20vh',
+          padding: '1vw',
+          alignItems: 'flex-start',
         }}
       >
-        {/* <Box
-          component={'div'}
-          sx={{
-            display: 'block',
-            position: 'static',
-            ml: '50px',
-            height: '100%',
-            alignSelf: 'flex-start',
-            mt: '50px',
-            zIndex: 1,
-          }}
-        > */}
-        <Grid container wrap="nowrap">
-          <Grid item {...gridSpacing}>
+        <Grid container spacing={4} gap={{ xs: 20, sm: 10, md: 0, lg: 0 }}>
+          <Grid item sx={{ height: '300px' }} {...infoTerminalSpacing}>
             <IntroTerminal />
-            {/* <Paper
-              sx={{ display: 'flex', height: '100px', backgroundColor: Colors.Blue8, mt: '400px' }}
-            /> */}
+            {/* <Paper sx={{ display: 'flex', height: '300px', backgroundColor: Colors.Blue8 }} /> */}
           </Grid>
-          <Grid item {...gridSpacing}>
+          <Grid item {...modelSpacing}>
             <Canvas
               camera={{ position: [0, 3, 4], fov: 40 }}
-              style={{ height: '700px', borderRadius: '10px', border: `2px solid ${Colors.Blue8}` }}
+              style={{
+                height: '500px',
+                borderRadius: '10px',
+                border: `2px solid ${Colors.Blue8}`,
+              }}
             >
               <OrbitControls makedefault />
               <Environment preset="city" />
               <Experience />
             </Canvas>
-            {/* <Paper
-              sx={{ display: 'flex', height: '100px', backgroundColor: Colors.Blue4, mt: '400px' }}
-            /> */}
+            {/* <Paper sx={{ display: 'flex', height: '100px', backgroundColor: Colors.Blue4 }} /> */}
           </Grid>
         </Grid>
-        {/* </Box> */}
       </Box>
     </>
   );

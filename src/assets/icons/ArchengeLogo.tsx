@@ -1,6 +1,6 @@
 import React from 'react';
 import { SxProps } from '@mui/material';
-import { Colors } from '../../../lib/constants/colors.ts';
+import { Colors } from '@lib/constants/colors.ts';
 
 type TArchengeLogoSVGProps = {
   width?: number;
@@ -9,16 +9,17 @@ type TArchengeLogoSVGProps = {
 };
 
 const ArchengeLogo: React.FC<TArchengeLogoSVGProps & SxProps> = ({
-  width = 50,
-  height = 80,
+  width = '100%',
+  height = '10vh',
   color = Colors.Blue8,
 }) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      width={`${width}px`}
-      height={`${height}px`}
+      width={width}
+      height={height}
       viewBox="0 0 100 150"
+      style={{ maxWidth: '100%', maxHeight: '100%', minWidth: '30px', minHeight: '40px' }}
     >
       <path
         d="m436.24 242.64 35.71 141.08c-29.69 7.52-53.01 27.38-69.12 52.35l-73.76-54.15c6.15-29.73 17-59.93 34.43-85.32 17.48-25.47 41.73-46.11 72.74-53.96zM413.83 455.31l-2.58 3.68-93.43-56.71-3.88 117.23h-16.23l-3.88-117.23-93.42 56.71-2.58-3.68-2.58-3.69 110.58-81.18 110.58 81.18zM400.47 524.01v18h-22.7c.12-6.01.46-12.01 1.03-18z"

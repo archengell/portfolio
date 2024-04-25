@@ -11,6 +11,7 @@ import HotKeys from '@/sections/HotKeys/index.ts';
 import Notifications from '@/sections/Notifications/index.ts';
 // import SW from '@/sections/SW/index.ts';
 import Sidebar from '@/sections/Sidebar/index.ts';
+import Footer from '@/sections/Footer/index.ts';
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
         <Header />
         <Sidebar />
         <Pages />
+        <Footer />
       </BrowserRouter>
     </Fragment>
   );

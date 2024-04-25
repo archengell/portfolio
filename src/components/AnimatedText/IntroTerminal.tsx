@@ -13,34 +13,32 @@ import './custom-cursor.css';
  * @returns
  */
 export const IntroTerminal = () => {
-  const [themeMode] = useTheme();
+  const [theme] = useTheme();
+
   return (
     <>
       <Box
         component={'div'}
         sx={{
-          backgroundColor: themeMode === Themes.DARK ? Colors.Dark5 : Colors.Light2,
+          backgroundColor: theme === Themes.DARK ? Colors.Dark5 : Colors.Light2,
           color: '#fff',
           fontFamily: 'monospace',
           padding: '20px',
           borderRadius: '10px',
           minHeight: '200px',
-          minWidth: '100px',
-          maxWidth: '700px',
+          width: { sx: '98vw', sm: '98vw', md: '98vw', lg: '700px' },
           overflowY: 'auto',
           textAlign: 'start',
           border: `2px solid ${Colors.Blue8}`,
-          position: 'fixed',
         }}
       >
         <Box component={'div'} display="flex">
-          <Typography sx={{ fontSize: '20px', fontWeight: 400, color: Colors.Blue8, mr: '5px' }}>
-            {'~/src> '}
+          <Typography sx={{ fontSize: '20px', fontWeight: 700, color: Colors.Blue8, mr: '5px' }}>
+            {'~/intro: '}
           </Typography>
-          {/* "Welcome. \n My name is Madison. \n I'm a software engineer based in Atlanta, GA.", */}
           <TypeAnimation
             sequence={[
-              `Hello, Kelly here 👋🏾 . I'm ${professions.Architect}, ${professions.StructuralEngineer}, ${professions.SoftwareEngineer}, ${professions.Artist}, and most importantly, a Sci-Fi/Fantasy Nerd. Thanks for stopping by. Please enjoy the glimpse into my world. \nAppreciate you.`,
+              `Hello, Kelly here 👋🏾 . Thanks for stopping by. Please enjoy the glimpse into my world as ${professions.Architect}, ${professions.StructuralEngineer}, ${professions.SoftwareEngineer}, ${professions.Artist}, and most importantly, a Sci-Fi/Fantasy Nerd.. \nAppreciate you.`,
             ]}
             wrapper="span"
             speed={10}

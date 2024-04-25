@@ -1,7 +1,7 @@
 import { useCallback, useState } from 'react';
 import { pdfjs, Document, Page } from 'react-pdf';
 
-import { Paper } from '@mui/material';
+import { Box, Paper } from '@mui/material';
 
 import PDFPageControl from './PDFPageControl.tsx';
 import { DownloadPDF } from '@/components/FABs/DownloadPDF.tsx';
@@ -59,43 +59,45 @@ export default function PDFViewer() {
   const isLoading = renderedPageNumber !== pageNumber;
 
   return (
-    <Document file={file} onLoadSuccess={onDocumentLoadSuccess}>
-      <Paper
-        elevation={5}
-        sx={{
-          boxShadow: `0 0 30px ${Colors.Clear}`,
-          '&:hover': {
-            boxShadow: `0 0 30px`,
-            color: Colors.Blue8,
-          },
-        }}
-      >
-        {isLoading && renderedPageNumber ? (
+    <Box component={'div'} sx={{ mb: '150px' }}>
+      <Document file={file} onLoadSuccess={onDocumentLoadSuccess}>
+        <Paper
+          elevation={5}
+          sx={{
+            boxShadow: `0 0 30px ${Colors.Clear}`,
+            '&:hover': {
+              boxShadow: `0 0 30px`,
+              color: Colors.Blue8,
+            },
+          }}
+        >
+          {isLoading && renderedPageNumber ? (
+            <Page
+              key={renderedPageNumber}
+              pageNumber={renderedPageNumber}
+              renderTextLayer={false}
+              renderAnnotationLayer={false}
+              width={containerWidth ? Math.min(containerWidth, MAX_WIDTH) : MAX_WIDTH}
+            />
+          ) : null}
           <Page
-            key={renderedPageNumber}
-            pageNumber={renderedPageNumber}
+            key={pageNumber}
+            pageNumber={pageNumber}
             renderTextLayer={false}
+            onRenderSuccess={() => setRenderedPageNumber(pageNumber)}
             renderAnnotationLayer={false}
             width={containerWidth ? Math.min(containerWidth, MAX_WIDTH) : MAX_WIDTH}
+            onLoadSuccess={() => {
+              if (pageNumber !== renderedPageNumber) {
+                setRenderedPageNumber(pageNumber);
+              }
+            }}
           />
-        ) : null}
-        <Page
-          key={pageNumber}
-          pageNumber={pageNumber}
-          renderTextLayer={false}
-          onRenderSuccess={() => setRenderedPageNumber(pageNumber)}
-          renderAnnotationLayer={false}
-          width={containerWidth ? Math.min(containerWidth, MAX_WIDTH) : MAX_WIDTH}
-          onLoadSuccess={() => {
-            if (pageNumber !== renderedPageNumber) {
-              setRenderedPageNumber(pageNumber);
-            }
-          }}
-        />
-      </Paper>
-      <PDFPageControl pageNumber={pageNumber} numPages={numPages} changePage={changePage} />
-
-      <DownloadPDF file="public/kelly_justin_wilson_resume.pdf" />
-    </Document>
+        </Paper>
+        <PDFPageControl pageNumber={pageNumber} numPages={numPages} changePage={changePage} />
+        <DownloadPDF file="public/kelly_justin_wilson_resume.pdf" />
+      </Document>
+      <Box component={'div'} sx={{ width: '200px' }}></Box>
+    </Box>
   );
 }

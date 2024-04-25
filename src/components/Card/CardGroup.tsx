@@ -1,7 +1,7 @@
 import React from 'react';
 import { styled, css } from '@mui/system';
 
-import { Modal, Button, Typography } from '@mui/material';
+import { Modal, Button, Stack, Typography } from '@mui/material';
 import { ItemCard } from './ItemCard.tsx';
 import { ArtworkItemCardProps, BaseItemCardProps, ExperienceItemCardProps } from './types.ts';
 import { CenteredFlexBox } from '../styled.ts';
@@ -19,7 +19,7 @@ export const CardGroup = ({
   cards,
 }: CardGroupProps<ExperienceItemCardProps | ArtworkItemCardProps>) => {
   const [open, setOpen] = React.useState(false);
-  const [cardId, setCardId] = React.useState<string>();
+  const [cardId, setCardId] = React.useState<string>('');
   const modalRef = React.useRef(null);
   const handleOpen = (cardId: string) => {
     setOpen(true);
@@ -48,22 +48,43 @@ export const CardGroup = ({
 
   return (
     <>
-      <CenteredFlexBox sx={{ flexWrap: 'wrap', gap: 3, alignContent: 'center', mt: '100px' }}>
+      <CenteredFlexBox
+        key={'card-group'}
+        sx={{ flexWrap: 'wrap', gap: 3, alignContent: 'center', mt: '15vh' }}
+      >
         {cards.map((card) => (
-          <>
+          <React.Fragment key={card.id}>
             {/* wrap the handleOpen inside an arr func to prevent immediate execution */}
             {/* adjust the onclick event to be a func called w. proper arg */}
             <ItemCard key={card.id} cardProps={card} handleOpen={() => handleOpen(card.id)} />
-          </>
+          </React.Fragment>
         ))}
-        <Modal open={open} onClose={handleClose}>
-          <CenteredFlexBox sx={{ height: '100%' }}>
-            <ModalContent ref={modalRef} sx={{ height: 700, width: 600 }}>
+        <Modal key={`${cardId}-modal`} open={open} onClose={handleClose}>
+          <CenteredFlexBox key={`${cardId}-modal-div`} sx={{ height: '100%' }}>
+            <ModalContent
+              ref={modalRef}
+              key={`${cardId}-modal-content`}
+              sx={{
+                height: 700,
+                width: { xs: '90vw', sm: '90vw', md: '600px' },
+                pl: '1vw',
+                pr: '1vw',
+              }}
+            >
               {slides ? (
-                <SlideShow slides={slides} handleClose={handleClose} />
+                <SlideShow key={`${cardId}-slideshow`} slides={slides} handleClose={handleClose} />
               ) : (
-                <CenteredFlexBox sx={{ flexDirection: 'column' }}>
-                  <Typography color={Colors.Blue8}>IN PROGRESS</Typography>
+                <Stack
+                  key={`${cardId}-modal-stack`}
+                  sx={{
+                    alignContent: 'center',
+                    alignItems: 'center',
+                    display: 'flex',
+                    mt: '300px',
+                  }}
+                  gap={2}
+                >
+                  <Typography color={Colors.Blue8}>UNDER CONSTRUCTION</Typography>
                   <Button
                     size="small"
                     variant="contained"
@@ -83,7 +104,7 @@ export const CardGroup = ({
                   >
                     {'Close'}
                   </Button>
-                </CenteredFlexBox>
+                </Stack>
               )}
             </ModalContent>
           </CenteredFlexBox>

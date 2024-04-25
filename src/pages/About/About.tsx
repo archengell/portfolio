@@ -1,32 +1,25 @@
-import { Paper, Typography } from '@mui/material';
+import { Box, Grid } from '@mui/material';
+import { AboutContent } from './AboutContent.tsx';
+import { aboutContent, AboutContentProps } from './data.ts';
 
-import { FullSizeCenteredFlexBox } from '@/components/styled.ts';
-import { borderProps } from '@lib/constants/styling.ts';
-import { Colors } from '@lib/constants/colors.ts';
+const gridSpacing = { xs: 12, sm: 12, md: 12, lg: 12 };
 
-function About() {
+const About = () => {
   return (
     <>
-      <FullSizeCenteredFlexBox>
-        {/* <Typography variant="h3" sx={{ color: Colors.Blue8 }}>
-          Coming soon...
-        </Typography> */}
-        <Paper
-          elevation={3}
-          sx={{ display: 'flex', overflow: 'auto', ...borderProps, width: '50vw', height: '30vh' }}
-        >
-          <Typography paragraph gutterBottom sx={{ color: Colors.Blue8, p: '30px' }}>
-            Hello again. I&aposm going to dive a bit more into who I am and what drives me. <br />{' '}
-            <br />
-            From an early age, I was drawn to creative design/artwork, science fiction, math, and
-            computers, amongst a few other things. As I matured, these interests evolved from an
-            inchoate cloud of professional ideation into a refined, focused decision on a career
-            covering three disciplines.
-          </Typography>
-        </Paper>
-      </FullSizeCenteredFlexBox>
+      <Grid container spacing={4} sx={{ mt: '10vh' }}>
+        {aboutContent.map((item: AboutContentProps) => {
+          return (
+            <Grid key={item.id} item {...gridSpacing}>
+              <AboutContent {...item} />
+            </Grid>
+          );
+        })}
+      </Grid>
+      {/* hack to extend viewport past the last about section */}
+      <Box component={'div'} sx={{ height: '100px' }}></Box>
     </>
   );
-}
+};
 
 export default About;

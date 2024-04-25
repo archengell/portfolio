@@ -8,8 +8,8 @@ Command: npx gltfjsx@6.2.16 public/66131fb21feec232b4f62d19.glb
 */
 
 import React from 'react';
-import { useGLTF, useFBX, useAnimations } from '@react-three/drei';
-import { Outlines, Wireframe } from '@react-three/drei';
+import * as THREE from 'three';
+import { useGLTF, useFBX, useAnimations, Outlines, Wireframe } from '@react-three/drei';
 
 export const Avatar = ({ animation }: { animation: string }) => {
   const { nodes, materials } = useGLTF('models/66131fb21feec232b4f62d19.glb');
@@ -42,7 +42,7 @@ export const Avatar = ({ animation }: { animation: string }) => {
   return (
     <>
       <group ref={groupRef} dispose={null}>
-        <group rotation={[-Math.PI * 0.5, 0, 0]}>
+        <group rotation={[THREE.MathUtils.degToRad(-90), 0, 0]}>
           <primitive object={nodes.Hips} />
           <skinnedMesh
             name="EyeLeft"

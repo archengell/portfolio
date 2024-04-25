@@ -1,4 +1,3 @@
-import React from 'react';
 import { Card, CardContent, CardMedia, CardActionArea, Typography } from '@mui/material';
 import { BaseItemCardProps } from './types.ts';
 import { Colors } from '@lib/constants/colors.ts';
@@ -30,10 +29,15 @@ export const ItemCard = <T extends BaseItemCardProps = BaseItemCardProps>({
       <CardActionArea sx={{ backgroundColor: `${Colors.Clear}`, color: `${Colors.Clear}` }}>
         <CardMedia
           component="img"
-          height="170"
+          height="150"
           image={cardProps.imgPath}
           alt={cardProps.imgAlt}
-          sx={{ borderColor: `${Colors.Clear}`, objectFit: 'contain', overflow: 'clip' }}
+          sx={{
+            borderColor: `${Colors.Clear}`,
+            objectFit: 'scale-down',
+            width: '300px',
+            ml: '50px',
+          }}
         />
         <CardContent sx={{ borderColor: `${Colors.Clear}` }}>
           <Typography gutterBottom variant="h6" component="div" color={Colors.Blue8}>
