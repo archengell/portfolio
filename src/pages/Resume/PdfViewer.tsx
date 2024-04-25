@@ -95,7 +95,7 @@ export default function PDFViewer() {
           />
         </Paper>
         <PDFPageControl pageNumber={pageNumber} numPages={numPages} changePage={changePage} />
-        <DownloadPDF file="public/kelly_justin_wilson_resume.pdf" />
+        <DownloadPDF file="./kelly_justin_wilson_resume.pdf" />
       </Document>
       <Box component={'div'} sx={{ width: '200px' }}></Box>
     </Box>
