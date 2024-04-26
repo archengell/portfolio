@@ -1,12 +1,13 @@
-import { useCallback, useState } from 'react';
+import React from 'react';
 import { pdfjs, Document, Page } from 'react-pdf';
 
 import { Box, Paper } from '@mui/material';
 
 import PDFPageControl from './PDFPageControl.tsx';
 import { DownloadPDF } from '@/components/FABs/DownloadPDF.tsx';
-import useResizeObserver from '@/hooks/useResizeObserver.ts';
+// import useResizeObserver from '@/hooks/useResizeObserver.ts';
 import { Colors } from '@lib/constants/colors.ts';
+import { useWindowSize } from '@/hooks/useWindowSize.ts';
 
 pdfjs.GlobalWorkerOptions.workerSrc = new URL(
   'pdfjs-dist/build/pdf.worker.js',
@@ -17,33 +18,23 @@ type PDFDocumentProps = {
   numPages: number;
 };
 
-const resizeObserverOptions = {};
 const MAX_WIDTH = 700;
+const MIN_WIDTH = 400;
 
 type PDFFile = string | File | null;
 
 export default function PDFViewer() {
-  const [file] = useState<PDFFile>('./kelly_justin_wilson_resume.pdf');
-  const [numPages, setNumPages] = useState(0);
-  const [pageNumber, setPageNumber] = useState(1);
-  const [renderedPageNumber, setRenderedPageNumber] = useState<number | null>(null);
-  const [containerRef] = useState<HTMLElement | null>(null);
-  const [containerWidth, setContainerWidth] = useState<number>();
-
-  const onResize = useCallback<ResizeObserverCallback>((entries) => {
-    const [entry] = entries;
-
-    if (entry) {
-      setContainerWidth(entry.contentRect.width);
-    }
-  }, []);
-
-  useResizeObserver(containerRef, resizeObserverOptions, onResize);
+  const [file] = React.useState<PDFFile>('./kelly_justin_wilson_resume.pdf');
+  const [numPages, setNumPages] = React.useState(0);
+  const [pageNumber, setPageNumber] = React.useState(1);
+  const [renderedPageNumber, setRenderedPageNumber] = React.useState<number | null>(null);
+  const size = useWindowSize();
+  const { width } = size;
 
   function onDocumentLoadSuccess({ numPages: _numPages }: PDFDocumentProps) {
     setNumPages(_numPages);
   }
-  const changePage = useCallback(
+  const changePage = React.useCallback(
     (offset: number) =>
       setPageNumber((prevPageNumber: number) => {
         const prevPage = prevPageNumber || 1;
@@ -59,7 +50,7 @@ export default function PDFViewer() {
   const isLoading = renderedPageNumber !== pageNumber;
 
   return (
-    <Box component={'div'} sx={{ mb: '150px' }}>
+    <Box component={'div'} sx={{ mb: '150px', mt: '200px' }}>
       <Document file={file} onLoadSuccess={onDocumentLoadSuccess}>
         <Paper
           elevation={5}
@@ -77,7 +68,7 @@ export default function PDFViewer() {
               pageNumber={renderedPageNumber}
               renderTextLayer={false}
               renderAnnotationLayer={false}
-              width={containerWidth ? Math.min(containerWidth, MAX_WIDTH) : MAX_WIDTH}
+              width={width < MAX_WIDTH ? MIN_WIDTH : MAX_WIDTH}
             />
           ) : null}
           <Page
@@ -86,7 +77,7 @@ export default function PDFViewer() {
             renderTextLayer={false}
             onRenderSuccess={() => setRenderedPageNumber(pageNumber)}
             renderAnnotationLayer={false}
-            width={containerWidth ? Math.min(containerWidth, MAX_WIDTH) : MAX_WIDTH}
+            width={width < MAX_WIDTH ? MIN_WIDTH : MAX_WIDTH}
             onLoadSuccess={() => {
               if (pageNumber !== renderedPageNumber) {
                 setRenderedPageNumber(pageNumber);
@@ -97,7 +88,7 @@ export default function PDFViewer() {
         <PDFPageControl pageNumber={pageNumber} numPages={numPages} changePage={changePage} />
         <DownloadPDF file="./kelly_justin_wilson_resume.pdf" />
       </Document>
-      <Box component={'div'} sx={{ width: '200px' }}></Box>
+      <Box component={'div'} sx={{ height: '100px' }}></Box>
     </Box>
   );
 }
