@@ -1,24 +1,13 @@
 {
-  "name": "React PWA",
-  "short_name": "reactpwa",
-  "description": "Starter kit for modern web applications",
+  "name": "Kelly Justin Wilson",
+  "short_name": "kellyjustin",
+  "description": "Architect | Structural Engineer | SWE",
   "theme_color": "#ffffff",
   "icons": [
     {
-      "src": "pwa-192x192.png",
+      "src": "./images/artwork/archengel/archengel-logo-blue8.png",
       "sizes": "192x192",
       "type": "image/png"
-    },
-    {
-      "src": "pwa-512x512.png",
-      "sizes": "512x512",
-      "type": "image/png"
-    },
-    {
-      "src": "pwa-512x512.png",
-      "sizes": "512x512",
-      "type": "image/png",
-      "purpose": "any maskable"
     }
   ]
 }
