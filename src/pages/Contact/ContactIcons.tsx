@@ -2,7 +2,7 @@ import { Divider, IconButton, Link, Stack, Tooltip } from '@mui/material';
 import { Email, GitHub, LinkedIn } from '@mui/icons-material';
 import { Colors } from '@lib/constants/colors.ts';
 
-const GITHUB_URL = `https://github.com/archengeI`;
+const GITHUB_URL = `https://github.com/archengell`;
 const LINKEDIN_URL = `https://www.linkedin.com/in/kelly-justin-wilson/`;
 const EMAIL = 'kjwilsondfl@gmail.com';
 
