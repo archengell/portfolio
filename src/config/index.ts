@@ -11,7 +11,7 @@ const messages = {
     crash: {
       title: 'Oooops... Sorry, I guess, something went wrong. You can:',
       options: {
-        email: `contact with author by this email - ${email}`,
+        email: `contact the author by this email - ${email}`,
         reset: 'Press here to reset the application',
       },
     },
