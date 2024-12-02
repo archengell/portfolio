@@ -41,7 +41,13 @@ const Welcome = () => {
               }}
             >
               <OrbitControls makedefault />
-              <Environment preset="city" />
+              {/*
+               ** https://github.com/pmndrs/drei/issues/395
+               ** CDN hosting issue with githack - known issue -
+               ** best sln is to download asset and host locally or own CDN - chose former
+               ** also, they've since created a more stable CDN => https://market.pmnd.rs/hdri/potsdamer-platz
+               */}
+              <Environment path="/hdri" files="/potsdamer_platz_1k.hdr" />
               <Experience />
             </Canvas>
             {/* <Paper sx={{ display: 'flex', height: '100px', backgroundColor: Colors.Blue4 }} /> */}
